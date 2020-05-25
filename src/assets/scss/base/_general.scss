@@ -15,3 +15,25 @@ h6 {
 p {
     font-family: 'Open Sans', sans-serif;
 }
+
+button.is-tmtech {
+    background-color: rgb(46, 250, 0);
+    border-color: rgb(46, 250, 0);
+
+    &:hover {
+        background-color: darken(rgb(46, 250, 0), 6%);
+        border-color: rgb(46, 250, 0);
+    }
+
+    &:active {
+        border-color: rgb(45, 250, 0);
+    }
+
+    &:focus {
+        border-color: lighten(rgb(46, 250, 0), 6%);
+        
+        &:not(:active) {
+            box-shadow: 0 0 0 0.125em rgba(46, 250, 0, .25)
+        }
+    }
+}

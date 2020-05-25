@@ -1,5 +1,7 @@
 import React from 'react';
 import VideoBackground from 'components/VideoBackground';
+import Modal from 'components/Modal';
+import ContactForm from 'components/ContactForm';
 import './App.scss';
 
 function App() {
@@ -19,6 +21,14 @@ function App() {
           talk about or you just want to say hi, you can contact us by hitting
           the button below.
         </p>
+        <Modal buttonText="Contact">
+          <div className="card">
+            <div className="card-content">
+              <h1>Contact Form</h1>
+              <ContactForm />
+            </div>
+          </div>
+        </Modal>
       </div>
     </VideoBackground>
   );
