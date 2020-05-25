@@ -21,7 +21,7 @@ function ContactForm() {
       })}
       onSubmit={async (values) => {
         try {
-          fetch('/', {
+          await fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: encode({ 'form-name': 'contact', ...values }),
@@ -32,7 +32,7 @@ function ContactForm() {
       }}
     >
       {(formik) => (
-        <Form name="contact" className="form" data-netlify="true">
+        <Form name="contact" className="form">
           <div className="control">
             <Field
               name="name"
