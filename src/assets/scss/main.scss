@@ -1,0 +1,21 @@
+@charset 'UTF-8';
+
+// Config & Helpers
+@import 
+    'node_modules/bulma/sass/utilities/_all.sass';
+
+// Base
+@import 
+    'node_modules/bulma/sass/base/_all.sass',
+    './base/general';
+
+// Elements
+@import 
+    'node_modules/bulma/sass/elements/button.sass',
+    'node_modules/bulma/sass/elements/container.sass',
+    'node_modules/bulma/sass/elements/image.sass';
+
+// Components
+@import 
+    'node_modules/bulma/sass/components/card.sass',
+    'node_modules/bulma/sass/components/modal.sass';
