@@ -32,7 +32,7 @@ function ContactForm() {
       }}
     >
       {(formik) => (
-        <Form name="contect" className="form" data-netlify="true">
+        <Form name="contact" className="form" data-netlify="true">
           <div className="control">
             <Field
               name="name"
