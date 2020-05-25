@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
+import { encode } from 'helpers/FormEncode';
 import './ContactForm.scss';
 
 function ContactForm() {
@@ -18,8 +19,16 @@ function ContactForm() {
           .required("We can't contact you without an email address"),
         message: string().required("We need to know why you're contacting us"),
       })}
-      onSubmit={(values) => {
-        console.log(values);
+      onSubmit={async (values) => {
+        try {
+          fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encode({ 'form-name': 'contact', ...values }),
+          });
+        } catch (err) {
+          console.log(err);
+        }
       }}
     >
       {(formik) => (
