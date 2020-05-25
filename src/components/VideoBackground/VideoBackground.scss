@@ -1,0 +1,19 @@
+.video-section {
+    position: relative;
+    background-color: rgb(24, 26, 27);
+
+    .video {
+        height: 100vh;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .5);
+    }
+}
