@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Trademark Technology](https://trademarktechnology.co.za) capacity notice bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
