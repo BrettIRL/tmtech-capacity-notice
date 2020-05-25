@@ -1,0 +1,28 @@
+.control  {
+   padding-bottom: 1.4rem;
+
+   .input, .textarea {
+       background-color: #f9f9f9;
+
+       &:active, &:focus {
+           border-color: rgb(45, 250, 0);
+           box-shadow: 0 0 0 0.125rem rgba(45, 250, 0, .25);
+       }
+   }
+}
+
+.error {
+    color: darken(rgb(45, 250, 0), 10%);
+    font-size: 0.7em;
+    position: absolute;
+    left: 14px;
+    bottom: .1rem;
+}
+
+.submit {
+    text-align: right;
+    
+    button.is-tmtech {
+        margin-top: 0;
+    }
+}

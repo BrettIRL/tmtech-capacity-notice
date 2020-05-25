@@ -17,14 +17,14 @@ function App() {
           deserve so we won't be taking on any more projects at this time.
         </h5>
         <p>
-          If you have a project that isn't time sensitive that you'd like to
-          talk about or you just want to say hi, you can contact us by hitting
-          the button below.
+          If you would like to talk to us about a project that isn't time
+          sensitive or would just like to say hi, hit the button below.
         </p>
         <Modal buttonText="Contact">
           <div className="card">
             <div className="card-content">
-              <h1>Contact Form</h1>
+              <h1 className="form-title">Contact Us</h1>
+              <hr />
               <ContactForm />
             </div>
           </div>
