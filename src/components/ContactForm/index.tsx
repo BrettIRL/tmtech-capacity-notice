@@ -1,38 +1,54 @@
-import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { object, string } from 'yup';
-import { encode } from 'helpers/FormEncode';
-import './ContactForm.scss';
+import React, { useState } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { object, string } from "yup";
+import { encode } from "helpers/FormEncode";
+import Notification, { NotificationType } from "components/Notification";
+import "./ContactForm.scss";
 
 function ContactForm() {
+  const [alert, setAlert] = useState({
+    type: NotificationType.Hidden,
+    message: "",
+  });
+
   return (
     <Formik
       initialValues={{
-        name: '',
-        email: '',
-        message: '',
+        name: "",
+        email: "",
+        message: "",
       }}
       validationSchema={object().shape({
-        name: string().required('We need to know what to call you'),
+        name: string().required("We need to know what to call you"),
         email: string()
-          .email('How can we contact you with an invalid email address')
+          .email("How can we contact you with an invalid email address")
           .required("We can't contact you without an email address"),
         message: string().required("We need to know why you're contacting us"),
       })}
-      onSubmit={async (values) => {
+      onSubmit={async (values, { resetForm }) => {
         try {
-          await fetch('/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: encode({ 'form-name': 'contact', ...values }),
+          await fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({ "form-name": "contact", ...values }),
           });
+          setAlert({
+            type: NotificationType.Success,
+            message: "Thank you! Your message has been successfully sent.",
+          });
+          resetForm();
         } catch (err) {
-          console.log(err);
+          setAlert({
+            type: NotificationType.Failure,
+            message:
+              "Yikes! There has been a problem sending your message. Please try again.",
+          });
         }
       }}
     >
       {(formik) => (
         <Form name="contact" className="form">
+          <Notification type={alert.type}>{alert.message}</Notification>
           <div className="control">
             <Field
               name="name"
